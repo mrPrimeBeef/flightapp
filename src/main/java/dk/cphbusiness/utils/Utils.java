@@ -1,13 +1,10 @@
 package dk.cphbusiness.utils;
 
-import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import dk.cphbusiness.flightdemo.FlightReader;
-
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -22,10 +19,16 @@ public class Utils {
         return props.getProperty(key);
     }
     public static ObjectMapper getObjectMapper() {
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper(); // Create a new ObjectMapper instance.
+
+        // Ignore unknown properties during deserialization.
         objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        // Add support for Java 8 Date and Time API (e.g., LocalDate, LocalDateTime).
         objectMapper.registerModule(new JavaTimeModule());
-        objectMapper.writer(new DefaultPrettyPrinter());
+
+        // Return the fully-configured ObjectMapper instance.
         return objectMapper;
     }
+
 }
