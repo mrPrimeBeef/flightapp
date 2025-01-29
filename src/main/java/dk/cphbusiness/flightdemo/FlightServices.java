@@ -48,4 +48,11 @@ public class FlightServices {
                 .sorted((f1, f2) -> f1.getArrival().compareTo(f2.getArrival()))
                 .toList();
     }
+
+    public static Map<String, Double> getTotalFlightTimeByEachAirline(List<FlightInfoDTO> flightInfoDTOList) {
+        return flightInfoDTOList.stream()
+                .filter(f -> f.getAirline() != null)
+                .collect(Collectors.groupingBy(FlightInfoDTO::getAirline, Collectors.summingDouble(f -> f.getDuration().toMinutes())));
+
+    }
 }

@@ -17,8 +17,8 @@ public class Exercises {
             List<FlightInfoDTO> flightInfoDTOList = getFlightInfoDetails(flightList);
 //            flightInfoDTOList.forEach(System.out::println);
 
-            //System.out.println("-----Round1--------");
-            // System.out.println("Minuts: " + FlightServices.getTotalFlightTimeByAirline(flightInfoDTOList, "Lufthansa"));
+//            System.out.println("-----Round1--------");
+//             System.out.println("Minuts: " + FlightServices.getTotalFlightTimeByAirline(flightInfoDTOList, "Lufthansa"));
 
             //System.out.println("-----Round2--------");
             //FlightServices.flightsBetweenOriginDestination(flightInfoDTOList, "Fukuoka","Haneda Airport").forEach(System.out::println);
@@ -29,8 +29,11 @@ public class Exercises {
 //            System.out.println("-----Round4--------");
 //            FlightServices.calculatAverageFlightTimeByAirline(flightInfoDTOList).forEach((a,aft) -> System.out.println(a + " " + aft));
 
-            System.out.println("-----Round5--------");
-            FlightServices.flightsSortedByArrivalTime(flightInfoDTOList).forEach(System.out::println);
+//            System.out.println("-----Round5--------");
+//            FlightServices.flightsSortedByArrivalTime(flightInfoDTOList).forEach(System.out::println);
+
+//            System.out.println("-----Round6--------");
+//            FlightServices.getTotalFlightTimeByEachAirline(flightInfoDTOList).forEach((a, sum) -> System.out.println(a + " " + sum));
 
         } catch (IOException e) {
             e.printStackTrace();
