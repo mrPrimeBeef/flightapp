@@ -34,12 +34,18 @@ public class FlightServices {
                 .toList();
     }
 
-    public static Map<String, Double> calculatAverageFlightTimeByAirline(List<FlightInfoDTO> flightInfoDTOList){
+    public static Map<String, Double> calculatAverageFlightTimeByAirline(List<FlightInfoDTO> flightInfoDTOList) {
         return flightInfoDTOList.stream()
                 .filter(f -> f.getAirline() != null)
                 .collect(Collectors.groupingBy(
                         FlightInfoDTO::getAirline,
                         Collectors.averagingDouble(ft -> Math.abs(ft.getDuration().toMinutes()))
                 ));
+    }
+
+    public static List<FlightInfoDTO> flightsSortedByArrivalTime(List<FlightInfoDTO> flightInfoDTOList) {
+        return flightInfoDTOList.stream()
+                .sorted((f1, f2) -> f1.getArrival().compareTo(f2.getArrival()))
+                .toList();
     }
 }

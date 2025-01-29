@@ -26,8 +26,11 @@ public class Exercises {
 //            System.out.println("-----Round3--------");
 //            FlightServices.flightBeforeOClock(flightInfoDTOList,"Fukuoka", LocalTime.of(7,6)).forEach(System.out::println);
 
-            System.out.println("-----Round4--------");
-            FlightServices.calculatAverageFlightTimeByAirline(flightInfoDTOList).forEach((a,aft) -> System.out.println(a + " " + aft));
+//            System.out.println("-----Round4--------");
+//            FlightServices.calculatAverageFlightTimeByAirline(flightInfoDTOList).forEach((a,aft) -> System.out.println(a + " " + aft));
+
+            System.out.println("-----Round5--------");
+            FlightServices.flightsSortedByArrivalTime(flightInfoDTOList).forEach(System.out::println);
 
         } catch (IOException e) {
             e.printStackTrace();
