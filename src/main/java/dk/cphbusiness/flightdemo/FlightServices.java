@@ -2,10 +2,12 @@ package dk.cphbusiness.flightdemo;
 
 import dk.cphbusiness.flightdemo.dtos.FlightInfoDTO;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class FlightServices {
@@ -54,5 +56,14 @@ public class FlightServices {
                 .filter(f -> f.getAirline() != null)
                 .collect(Collectors.groupingBy(FlightInfoDTO::getAirline, Collectors.summingDouble(f -> f.getDuration().toMinutes())));
 
+    }
+
+    public static List<FlightInfoDTO> flightsSortedByDuration(List<FlightInfoDTO> flightInfoDTOList) {
+
+        Function<FlightInfoDTO, Integer> absMinutes = f -> (int) Math.abs(f.getDuration().toMinutes());
+
+        return flightInfoDTOList.stream()
+                .sorted((f1, f2) -> absMinutes.apply(f1) - absMinutes.apply(f2))
+                .toList();
     }
 }

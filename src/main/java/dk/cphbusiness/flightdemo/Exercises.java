@@ -35,6 +35,10 @@ public class Exercises {
 //            System.out.println("-----Round6--------");
 //            FlightServices.getTotalFlightTimeByEachAirline(flightInfoDTOList).forEach((a, sum) -> System.out.println(a + " " + sum));
 
+            System.out.println("-----Round7--------");
+            FlightServices.flightsSortedByDuration(flightInfoDTOList).forEach(System.out::println);
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
