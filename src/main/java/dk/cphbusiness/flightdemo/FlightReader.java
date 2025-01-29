@@ -26,6 +26,7 @@ public class FlightReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     public static List<FlightDTO> getFlightsFromFile(String filename) throws IOException {
@@ -63,5 +64,4 @@ public class FlightReader {
                 .toList();
         return flightInfoList;
     }
-
 }
