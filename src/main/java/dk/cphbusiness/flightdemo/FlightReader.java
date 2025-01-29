@@ -42,25 +42,25 @@ public class FlightReader {
 
     public static List<FlightInfoDTO> getFlightInfoDetails(List<FlightDTO> flightList) {
         List<FlightInfoDTO> flightInfoList = flightList.stream()
-           .map(flight -> {
-                LocalDateTime departure = flight.getDeparture().getScheduled();
-                LocalDateTime arrival = flight.getArrival().getScheduled();
-                Duration duration = Duration.between(departure, arrival);
-                FlightInfoDTO flightInfo =
-                        FlightInfoDTO.builder()
-                            .name(flight.getFlight().getNumber())
-                            .iata(flight.getFlight().getIata())
-                            .airline(flight.getAirline().getName())
-                            .duration(duration)
-                            .departure(departure)
-                            .arrival(arrival)
-                            .origin(flight.getDeparture().getAirport())
-                            .destination(flight.getArrival().getAirport())
-                            .build();
+                .map(flight -> {
+                    LocalDateTime departure = flight.getDeparture().getScheduled();
+                    LocalDateTime arrival = flight.getArrival().getScheduled();
+                    Duration duration = Duration.between(departure, arrival);
+                    FlightInfoDTO flightInfo =
+                            FlightInfoDTO.builder()
+                                    .name(flight.getFlight().getNumber())
+                                    .iata(flight.getFlight().getIata())
+                                    .airline(flight.getAirline().getName())
+                                    .duration(duration)
+                                    .departure(departure)
+                                    .arrival(arrival)
+                                    .origin(flight.getDeparture().getAirport())
+                                    .destination(flight.getArrival().getAirport())
+                                    .build();
 
-                return flightInfo;
-            })
-        .toList();
+                    return flightInfo;
+                })
+                .toList();
         return flightInfoList;
     }
 
