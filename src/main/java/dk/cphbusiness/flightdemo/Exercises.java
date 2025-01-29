@@ -23,8 +23,11 @@ public class Exercises {
             //System.out.println("-----Round2--------");
             //FlightServices.flightsBetweenOriginDestination(flightInfoDTOList, "Fukuoka","Haneda Airport").forEach(System.out::println);
 
-            System.out.println("-----Round3--------");
-            FlightServices.flightBeforeOClock(flightInfoDTOList,"Fukuoka", LocalTime.of(7,6)).forEach(System.out::println);
+//            System.out.println("-----Round3--------");
+//            FlightServices.flightBeforeOClock(flightInfoDTOList,"Fukuoka", LocalTime.of(7,6)).forEach(System.out::println);
+
+            System.out.println("-----Round4--------");
+            FlightServices.calculatAverageFlightTimeByAirline(flightInfoDTOList).forEach((a,aft) -> System.out.println(a + " " + aft));
 
         } catch (IOException e) {
             e.printStackTrace();
