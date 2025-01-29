@@ -14,9 +14,15 @@ public class Exercises {
         try {
             List<FlightDTO> flightList = getFlightsFromFile("flights.json");
             List<FlightInfoDTO> flightInfoDTOList = getFlightInfoDetails(flightList);
-            flightInfoDTOList.forEach(System.out::println);
+//            flightInfoDTOList.forEach(System.out::println);
+
+            System.out.println("-----Round1--------");
+            System.out.println("Minuts: " + FlightServices.getTotalFlightTimeByAirline(flightInfoDTOList, "Lufthansa"));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
     }
 }
