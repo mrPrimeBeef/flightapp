@@ -16,4 +16,12 @@ public class FlightServices {
 
         return result;
     }
+
+
+    public static List<FlightInfoDTO> flightsBetweenOriginDestination(List<FlightInfoDTO> flightInfoDTOList, String origin, String destination) {
+        return flightInfoDTOList.stream()
+                .filter(f->origin.equals(f.getOrigin()))
+                .filter(f->destination.equals(f.getDestination()))
+                .toList();
+    }
 }

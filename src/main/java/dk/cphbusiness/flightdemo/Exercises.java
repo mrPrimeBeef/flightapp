@@ -19,6 +19,9 @@ public class Exercises {
             System.out.println("-----Round1--------");
             System.out.println("Minuts: " + FlightServices.getTotalFlightTimeByAirline(flightInfoDTOList, "Lufthansa"));
 
+            System.out.println("-----Round2--------");
+            FlightServices.flightsBetweenOriginDestination(flightInfoDTOList, "Fukuoka","Haneda Airport").forEach(System.out::println);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
